@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - MYSQL_DATABASE_PASSWORD=tejas
+      - MYSQL_DATABASE_USER=root
+      - MYSQL_DATABASE_HOST=db
+      - MYSQL_DATABASE_DB=pythoncrud
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    restart: always
+    command: --init-file /data/application/init.sql
+    volumes:
+        - db-data:/var/lib/mysql
+        - ./init.sql:/data/application/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: tejas
+
+    ports:
+      - "3306:3306"
+
+volumes:
+  db-data:

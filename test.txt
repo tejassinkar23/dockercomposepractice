@@ -1,0 +1,8 @@
+.env file 
+envoironment variables in docker compose file
+pip install python-dotenv
+docker compose -f .\docker-compose.yaml run web
+docker-compose up -d
+pip install flask
+pip install flask_table
+pip install flask-mysql
