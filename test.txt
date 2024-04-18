@@ -6,3 +6,4 @@ docker-compose up -d
 pip install flask
 pip install flask_table
 pip install flask-mysql
+i want to use environmental variables through external file using .env file
